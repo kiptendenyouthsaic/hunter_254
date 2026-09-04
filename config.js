@@ -13,7 +13,7 @@ module.exports = {
     sessionName: 'session',
     sessionID: process.env.SESSION_ID || '',
     newsletterJid: '120363418258890415@newsletter', // Newsletter JID for menu forwarding
-    updateZipUrl: 'https://github.com/mruniquehacker/KnightBot-Mini/archive/refs/heads/main.zip', // URL to latest code zip for .update command
+    updateZipUrl: '', // URL to latest code zip for .update command
     
     // Sticker Configuration
     packname: '╔═══❖•ೋ° HUNTER254 BOT °ೋ•❖═══╗',
@@ -82,7 +82,7 @@ module.exports = {
     
     // Social Links (optional)
     social: {
-      github: 'https://github.com/Hunter-254',
+      github: 'https://github.com/kiptendenyouthsaic/hunter_254',
       instagram: 'https://instagram.com/hu.nt.er_254',
       youtube: 'http://youtube.com/@hunter_2547'
     }
