@@ -1,251 +1,121 @@
 <div align="center">
 
-## Knight Bot Mini
+## HUNTER_254 BOT
 
-[![Made with Baileys](https://img.shields.io/badge/Made%20with-Baileys-00bcd4?style=for-the-badge)](https://github.com/WhiskeySockets/Baileys)
-[![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+[![Made with Baileys](https://img.shields.io/badge/Made%20with-Baileys-00bcd4?style=for-the-badge)](https://github.com/WhiskeySockets/Baileys)[![Node.js](https://img.shields.io/badge/Node.js-CommonJS-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-<img src="utils/bot_image.jpg" alt="Knight Bot Mini" width="260">
+<img src="utils/bot_image.jpg" alt="HUNTER_254 BOT" width="260"> </div>
 
-</div>
+HUNTER_254 BOT is a modular WhatsApp MD bot built with the Baileys library. The bot uses command modules, group-management tools, media utilities, games, AI integrations, and configurable owner controls.
 
-Knight Bot Mini is a WhatsApp MD bot built on top of the **Baileys** library.  
-It’s designed to be fast, lightweight, and easy to customize without touching the core code.  
-This project is **fully open source** — you can modify it, rebrand it, and make your **own bot** from this codebase **free of cost**, without needing any permission from our side.  
-All commands and the overall structure are written in a way that makes customization (bot image, prefix, name, features, etc.) as easy as possible.
+> This project is independent and unofficial software. It is not affiliated with or endorsed by WhatsApp.
 
----
+## Features
 
+The bot includes administrator and owner commands, anti-link and anti-tag controls, welcome and goodbye messages, warnings, group statistics, stickers, media downloads, text effects, games, translation, weather, AI commands, status handling, and configurable auto-reaction and auto-status features. Commands are organized under the `commands/` directory and can be customized without changing the main message-processing flow.
 
-## ✨ Features
+The bot configuration is defined in `config.js`. The default bot name is `HUNTER_254 BOT`, the command prefix is `>`, the timezone is `Africa/Nairobi`, and the default owner number is configured for the project owner. Review these values before deployment.
 
-- **Fully Open Source** – entire codebase is editable; host it anywhere (Heroku, panel, VPS, etc.).  
-- **Easy Customization via Commands** – change **bot image**, **prefix**, **channel/newsletter**, **bot name**, etc. with simple commands.  
-- **Modular Command System** – commands are organized in the `commands` folder for easy editing.  
-- **Optimized for Stability** – RAM‑optimized media handling (streaming, temp cleanup), better session handling via `sessionID` in `config.js`.  
-- **Owner Utilities** – restart, update from ZIP, and more owner‑only tools.
+## Session Configuration
 
----
+The bot reads the session from the `SESSION_ID` environment variable:
 
-### 1. Fork the Repository
-
-<div align="center">
-
-<a href="https://github.com/mruniquehacker/Knightbot-Mini/fork" target="_blank">
-  <img src="https://img.shields.io/badge/Fork%20Repository-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Fork on GitHub">
-</a>
-
-</div>
-
-> This creates your own copy of `Knightbot-Mini` under your GitHub account.
-
----
-
-### 2. Get Pair Code
-
-Deploy a small helper to generate a **pair code** and obtain your session string.
-
-<div align="center">
-
-<a href="https://knight-bot-paircode.onrender.com/" target="_blank">
-  <img src="https://img.shields.io/badge/Generate-Pair%20Code-blueviolet?style=for-the-badge" alt="Generate Pair Code">
-</a>
-
-</div>
-
-After scanning, you will receive a **session string** starting with:
-
-```text
-KnightBot!H4....
+```
+SESSION_ID=HunterBot!<base64-compressed-session-data>
 ```
 
-Copy that full string and paste it into `config.js`:
+The value must be the complete session string, including the `HunterBot!` prefix. Do not commit a real session string to GitHub or place it directly in public source code.
 
-```js
-sessionID: 'KnightBot!H4.....'
-```
-
-Or set it via the `SESSION_ID` environment variable when hosting.
-
----
-
-### 3. Deploy on Panel (Katabump, etc.)
-
-<div align="center">
-
-<a href="https://dashboard.katabump.com/auth/login#d6b7d6" target="_blank">
-  <img src="https://img.shields.io/badge/Deploy%20on-Katabump-orange?style=for-the-badge" alt="Deploy on Katabump">
-</a>
-
-</div>
-
-For a full step‑by‑step deployment tutorial (panels / VPS / Heroku), add or update your YouTube guide here:
-
-<div align="center">
-  <a href="https://youtu.be/4PQcn-qqrcE">
-    <img src="https://img.shields.io/badge/Deploy Tutorial-dc3545?style=for-the-badge&logo=youtube" alt="YouTube Link"/>
-  </a>
-</div>
-
----
-
-## 🛠 Local Setup
-
-### 1️⃣ Clone the repository
+For local development, create a `.env` file or export the variable in your shell. The application reads environment variables through Node.js at startup; if your local environment does not automatically load `.env` files, export the value explicitly:
 
 ```bash
-git clone https://github.com/mruniquehacker/Knightbot-Mini.git
-cd Knightbot-Mini
+export SESSION_ID='HunterBot!your_session_string_here'
+npm start
 ```
 
-### 2️⃣ Install dependencies
-
-```bash
-npm install
-```
-
-### 3️⃣ Configure session
-
-Edit `config.js`:
-
-- **Option A: Use session string**
-
-  ```js
-  sessionID: 'KnightBot!H4.....'
-  ```
-
-- **Option B: Scan QR**
-
-  ```js
-  sessionID: ''
-  ```
-
-  Run the bot and scan the QR from the terminal.
-
-### 4️⃣ Run the bot
-
-```bash
-node index.js
-```
-
-When the bot starts:
-
-- If `sessionID` is empty, a **QR code** will appear in the terminal – scan it using **Linked Devices** in WhatsApp.  
-- If `sessionID` is set, it will log in using that session string.
-
----
-
-## 🌐 Community
-
-<div align="center">
-
-<a href="https://t.me/+3QhFUZHx-nhhZmY1" target="_blank">
-  <img src="https://img.shields.io/badge/Join-Telegram-0088cc?style=for-the-badge&logo=telegram&logoColor=white" alt="Join Telegram">
-</a>
-
-<a href="https://whatsapp.com/channel/0029Va90zAnIHphOuO8Msp3A" target="_blank">
-  <img src="https://img.shields.io/badge/Join-WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Join WhatsApp Channel">
-</a>
-
-</div>
-
----
-
-## 🙏 Credits
-
-- **Mr Unique Hacker** – Main developer & maintainer  
-- **Baileys** – WhatsApp Web API library (`@whiskeysockets/baileys`)  
-- Other open‑source libraries listed in `package.json`
-
----
-
-## ☕ Support Me
-
-<div align="center">
-
-<a href="https://buymeacoffee.com/mruniquehacker" target="_blank">
-  <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support%20Developer-FF813F?style=for-the-badge&logo=buy-me-a-coffee&logoColor=white" alt="Buy Me a Coffee">
-</a>
-
-</div>
-
-If you find this project helpful and want to support the developer, consider buying me a coffee! Your support helps maintain and improve this open-source project.
-
-<div align="center">
-
-<img src="utils/bmc_qr.png" alt="Buy Me a Coffee QR Code" width="200">
-
-</div>
-
----
-
-
-## ⚠️ Important Warning
-
-- This bot is created **for educational purposes only**.  
-- This is **NOT** an official WhatsApp bot.  
-- Using third‑party bots **may violate WhatsApp’s Terms of Service** and can lead to your account being **banned**.
-
-> You use this bot **at your own risk**.  
-> The developers are **not responsible** for any bans, issues, or damages resulting from its use.
-
----
-
-## 📝 Legal
-
-- This project is **not affiliated with, authorized, maintained, sponsored, or endorsed** by WhatsApp Inc. or any of its affiliates or subsidiaries.  
-- This is **independent and unofficial software**.  
-- **Do not spam** people using this bot.  
-- **Do not** use this bot for bulk messaging, harassment, or any **illegal activities**.  
-- The developers assume **no liability** and are **not responsible** for any misuse or damage caused by this program.
-
----
-
-## 📄 License (MIT)
-
-This project is licensed under the **MIT License**.
-
-You must:
-
-- Use this software in compliance with **all applicable laws and regulations**.  
-- Keep the **original license and copyright** notices.  
-- **Credit the original authors**.  
-- **Not** use this for spam, abuse, or malicious purposes.
-
----
-
-## 📜 Copyright Notice
-
-Copyright (c) **2026 Professor**.  
-All rights reserved.
-
-This project contains code from various open‑source projects and AI tools, including but not limited to:
-
-- **Baileys** – MIT License  
-- Other libraries as listed in `package.json`
-
----
+If `SESSION_ID` is empty, the bot falls back to QR authentication and prints the QR code in the terminal. QR-based authentication is suitable for local use, but a Render restart may remove generated session files, so Render deployments should use `SESSION_ID`.
 
 ## Render Web Service Deployment
 
-This project includes `render.yaml` for deployment as a Render Web Service. The service listens on Render's `PORT` value, binds to `0.0.0.0`, and exposes `/health` for health checks.
+This repository includes `render.yaml` and is configured as a Render Web Service. The service exposes `/health`, listens on Render’s `PORT` value, and binds to `0.0.0.0` so Render can reach the application.
 
-Push this project to a GitHub or GitLab repository, create a new Render Blueprint, and select that repository. Render will read `render.yaml`, install dependencies with `npm ci`, and start the bot with `npm start`.
+### Deploy with Render Blueprint
 
-In the Render service environment settings, set the secret variable `SESSION_ID` to the complete session string, for example:
+Push the project to a GitHub or GitLab repository. In Render, create a new Blueprint and select the repository. Render will read `render.yaml` and use the following commands:
 
-```text
-KnightBot!<base64-compressed-session-data>
+```
+Build Command: npm ci
+Start Command: npm start
+Health Check Path: /health
 ```
 
-Do not commit the real session string to source control. The included `.env.example` is only a template, and `.gitignore` excludes local session and environment files.
+In the Render service’s Environment settings, add the secret variable below:
 
 | Variable | Required | Value |
-|---|---:|---|
-| `SESSION_ID` | Yes | The complete `KnightBot!…` session string. |
-| `NODE_ENV` | No | Set to `production`; the Blueprint sets this automatically. |
-| `SESSION_DIR` | No | Defaults to `/tmp/whatsapp-session` in the Blueprint. |
+| --- | --- | --- |
+| `SESSION_ID` | Yes | The complete `HunterBot!…` session string. |
+| `NODE_ENV` | No | `production`; configured automatically by `render.yaml`. |
+| `SESSION_DIR` | No | `/tmp/whatsapp-session`; configured automatically by `render.yaml`. |
 
-The `/health` endpoint reports whether `SESSION_ID` is configured but never returns the secret itself. Because Render Web Services use ephemeral filesystems, the session should be supplied through `SESSION_ID`; do not rely on a generated local QR session surviving a restart.
+The health endpoint returns only service status and whether a session is configured. It does not return the session secret. Open the deployed service URL at `/health` to verify that the web service is responding.
 
+### Manual Render Configuration
+
+If you are not using the Blueprint, create a **Web Service** with these settings:
+
+```
+Runtime: Node
+Build Command: npm ci
+Start Command: npm start
+Health Check Path: /health
+```
+
+Then add `SESSION_ID` as a secret environment variable. Do not add the session string to `config.js` in the repository.
+
+## Local Setup
+
+Clone the repository and install the locked dependencies:
+
+```bash
+git clone <your-repository-url>
+cd <your-repository-directory>
+npm ci
+```
+
+Configure the session and start the bot:
+
+```bash
+export SESSION_ID='HunterBot!your_session_string_here'
+npm start
+```
+
+The package also provides a development command:
+
+```bash
+npm run dev
+```
+
+The bot’s package start script is `node index.js`. The `Procfile` also uses `node index.js` for platforms that recognize Procfiles.
+
+## Project Structure
+
+| Path | Purpose |
+| --- | --- |
+| `index.js` | Starts the health server and WhatsApp connection. |
+| `config.js` | Bot name, prefix, owner, feature, and session configuration. |
+| `handler.js` | Routes incoming messages to command handlers. |
+| `commands/` | Modular bot commands grouped by feature. |
+| `database/` | JSON data used by group settings, warnings, games, and statistics. |
+| `utils/` | Media, cleanup, sticker, conversion, and helper utilities. |
+| `render.yaml` | Render Web Service Blueprint. |
+| `.env.example` | Safe environment-variable template. |
+
+## Security and Usage Notice
+
+Keep `SESSION_ID`, API keys, and generated authentication files private. Rotate the WhatsApp session if it is accidentally exposed. Use the bot only in compliance with applicable laws and WhatsApp’s terms. Do not use it for spam, harassment, bulk messaging, or other abusive activity.
+
+This bot is provided for educational purposes. Third-party WhatsApp automation can result in account restrictions or bans, and the project authors are not responsible for misuse, service interruptions, or account actions.
+
+## Credits and License
+
+The project uses the Baileys library and other open-source dependencies listed in `package.json`. Preserve the original license and copyright notices when modifying or redistributing the project. The project is distributed under the MIT License where applicable.
