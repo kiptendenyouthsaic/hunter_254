@@ -77,7 +77,7 @@ const healthServer = http.createServer((req, res) => {
     res.writeHead(200, { 'content-type': 'application/json; charset=utf-8' });
     res.end(JSON.stringify({
       ok: true,
-      service: 'whatsapp-md-bot',
+      service: 'hunter-bot',
       sessionConfigured: Boolean(process.env.SESSION_ID)
     }));
     return;
@@ -216,13 +216,13 @@ async function startBot() {
   const sessionFolder = path.resolve(process.env.SESSION_DIR || `./${config.sessionName}`);
   const sessionFile = path.join(sessionFolder, 'creds.json');
 
-  // Check if sessionID is provided and process KnightBot! format session
-  if (config.sessionID && config.sessionID.startsWith('KnightBot!')) {
+  // Check if sessionID is provided and process HunterBot! format session
+  if (config.sessionID && config.sessionID.startsWith('HunterBot!')) {
     try {
       const [header, b64data] = config.sessionID.split('!');
 
-      if (header !== 'KnightBot' || !b64data) {
-        throw new Error("❌ Invalid session format. Expected 'KnightBot!.....'");
+      if (header !== 'HunterBot' || !b64data) {
+        throw new Error("❌ Invalid session format. Expected 'HunterBot!.....'");
       }
 
       const cleanB64 = b64data.replace('...', '');
@@ -236,10 +236,10 @@ async function startBot() {
 
       // Write decompressed session data to creds.json
       fs.writeFileSync(sessionFile, decompressedData, 'utf8');
-      console.log('📡 Session : 🔑 Retrieved from KnightBot Session');
+      console.log('📡 Session : 🔑 Retrieved from HunterBot Session');
 
     } catch (e) {
-      console.error('📡 Session : ❌ Error processing KnightBot session:', e.message);
+      console.error('📡 Session : ❌ Error processing HunterBot session:', e.message);
       // Continue with normal QR flow if session processing fails
     }
   }
@@ -493,7 +493,7 @@ if (isSystemJid(from)) {
   return sock;
 }
 // Start the bot
-console.log('🚀 Starting WhatsApp MD Bot...\n');
+console.log('🚀 Starting Hunter Bot...\n');
 console.log(`📦 Bot Name: ${config.botName}`);
 console.log(`⚡ Prefix: ${config.prefix}`);
 const ownerNames = Array.isArray(config.ownerName) ? config.ownerName.join(',') : config.ownerName;
